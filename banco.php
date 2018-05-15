@@ -58,9 +58,20 @@ function editar_vaga($conexao, $vaga) {
 
 function conta_vagas($conexao) {
 	$sqlBusca = "
-		SELECT count(id) as qtd
-		FROM vaga;
+		SELECT count(id) AS qtd
+		FROM vaga
 	";
+	$resultado = mysqli_query($conexao, $sqlBusca);
+	return mysqli_fetch_assoc($resultado)['qtd'];
+}
+
+function conta_nome_vaga($conexao, $nome) {
+	$sqlBusca = "
+		SELECT count(id) AS qtd
+		FROM vaga
+		WHERE nome = '$nome'
+	";
+
 	$resultado = mysqli_query($conexao, $sqlBusca);
 	return mysqli_fetch_assoc($resultado)['qtd'];
 }

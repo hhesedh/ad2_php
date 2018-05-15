@@ -14,6 +14,9 @@
 			<?php if ($tem_erros && isset($msg_erro['vazia'])): ?>
 				<span  style="color: #F44;"><?php echo $msg_erro['vazia']; ?></span>
 			<?php endif;?>
+			<?php if ($tem_erros && isset($msg_erro['repetido'])): ?>
+				<span  style="color: #F44;"><?php echo $msg_erro['repetido']; ?></span>
+			<?php endif;?>
 		</label>
 		<fieldset>
 			<legend>Vagas</legend>

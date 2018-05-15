@@ -9,9 +9,10 @@ if (!empty($_POST)) {
 	if (trim($_POST['nome']) == "") {
 		$msg_erro['vazia'] = "Por favor digite alguma coisa";
 		$tem_erros = true;
-		echo "string";
+	} else if (conta_nome_vaga($conexao, $_POST['nome']) && $_POST['nome'] != $vetor_vaga['nome']) {
+		$msg_erro['repetido'] = "Esta vaga já está no banco de dados ";
+		$tem_erros = true;
 	} else {
-		echo "estou aqui";
 		editar_vaga($conexao, $_POST);
 		header('Location: index.php');
 		die();
